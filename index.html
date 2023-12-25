@@ -1,0 +1,372 @@
+
+<!DOCTYPE html><!-- Declaration of the document type as HTML -->
+<html lang="en"> <!-- Start of the HTML document with 'en' as the language -->
+<head>
+    <meta charset="UTF-8"><!-- Set the character encoding to UTF-8 -->
+    <title>File Transfer Protocol</title><!-- Set the title of the web page -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script><!-- Include the A-Frame library -->
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script><!-- Include the AR.js extension for A-Frame -->
+</head>
+<body style="margin: 0; overflow: hidden;"><!-- Set body styles to remove margins and hidden overflow -->
+    <a-scene embedded arjs="sourceType: webcam; geolocUser: false; debugUIEnabled: false;"><!-- Create an A-Frame scene for AR with specific attributes -->
+        <!-- Create an A-Frame scene for markerless augmented reality with geolocation tracking -->
+        <!-- <a-entity camera gps-camera rotation-reader></a-entity> -->
+
+        <!-- 3D model to display -->
+
+        <a-entity
+        gltf-model="url(/mp3_file_icon.glb)" 
+        scale="0.3 0.3 0.3"
+        position="0 0 -15"
+        rotation="1 260 0"      
+        id="moving-entity3">
+        </a-entity>
+
+<!-- gltf-model="url(/mp3_file_icon.glb)"  Specifies the 3D model to be loaded from the specified URL 
+ scale="0.3 0.3 0.3"  Sets the scale of the 3D model to 30% of its original size in all dimensions 
+ position="0 0 -15"  Defines the initial position of the 3D model in 3D space (x, y, z coordinates) 
+ rotation="1 260 0"  Defines the initial rotation of the 3D model (x, y, z angles) 
+ id="moving-entity3">  Assigns the unique ID "moving-entity3" to this A-Frame entity for JavaScript reference 
+-->
+
+            <!-- Add a text entity -->
+            <a-entity
+            text="value: Devices; align: center; width: 4; color: white"
+            position="-5.7 5 -15"
+            scale="2 2 2"
+            visible="true"
+
+            ></a-entity>
+
+        <a-entity
+        gltf-model="url(/gaming_laptop.glb)"
+        scale="0.5 0.5 0.5"
+        position="-6 2 -15"
+        rotation="0 260 0" 
+        ></a-entity>
+
+        <a-entity
+        gltf-model="url(/mp3_file_icon.glb)"
+        scale="0.3 0.3 0.3"
+        position="0 2 -15"
+        rotation="0 260 0"      
+        id="moving-entity2">
+        </a-entity>
+
+        <a-entity
+        gltf-model="url(/desktop_computer.glb)"
+        scale="2.0 2.0 2.0"
+        position="-6 4.2 -16"
+        rotation="0 0 0" 
+        ></a-entity>
+
+        
+
+        <a-entity
+        gltf-model="url(/gaming_laptop.glb)"
+        scale="0.5 0.5 0.5"
+        position="-6 0 -15"
+        rotation="0 260 0" 
+        ></a-entity>
+
+        <a-entity
+        gltf-model="url(/desktop_computer.glb)"
+        scale="2.0 2.0 2.0"
+        position="-6 -1.2 -16"
+        rotation="0 0 0" 
+        ></a-entity>
+
+        <a-entity
+        gltf-model="url(/desktop_computer.glb)"
+        scale="2.0 2.0 2.0"
+
+        position="5 -1 -16"
+        rotation="0 0 0" 
+        ></a-entity>
+
+         <!-- Add a text entity -->
+         <a-entity
+         text="value: This Device Uploads File; align: center; width: 2; color: white"
+         position="5 -2 -16"
+         scale="2 2 2"
+         visible="true"
+     
+        ></a-entity>
+
+        
+
+
+        <a-entity
+            gltf-model="url(/clouds.glb)"
+            scale="0.50 6 1.50"
+            position="0 -1 -15"
+            rotation="0 260 0" 
+        ></a-entity> 
+
+        <!-- Add a text entity -->
+         <a-entity
+         text="value: Internet; align: center; width: 4; color: white"
+         position="0 -2 -15"
+         scale="2 2 2"
+         visible="true"
+     
+        ></a-entity>
+
+        <a-entity
+            gltf-model="url(/mp3_file_icon.glb)"
+            scale="0.3 0.3 0.3"
+            position="0 0 -15"
+            rotation="0 260 0"      
+            id="moving-entity1" 
+        ></a-entity>
+
+        <a-entity
+        gltf-model="url(/mp3_file_icon.glb)"
+        scale="0.3 0.3 0.3"
+        position="0 1 -15"
+        rotation="0 260 0"
+        id="moving-entity4"      
+        >
+        </a-entity>
+
+        <!-- Add a text entity -->
+ <a-entity
+ text="value:Devices using internet downloads 
+ file from ftp.example.com; align: center; width: 3; color: white"
+ position="-3.4 -2 -15"
+ scale="2 2 2"
+ visible="false"
+ id="arText"
+></a-entity>
+
+
+
+<!-- -->
+
+        <!-- <a-entity
+        gltf-model="url(/mp3_file_icon.glb)"
+        scale="0.3 0.3 0.3"
+        position="4 -1 -15"
+        rotation="0 260 0"
+        id="moving-entity5"
+        animation__position="property: position; from: 4 -1 -15; to: 0 0 -15; dur: 2000; easing: linear; loop: true; repeat: indefinite"
+      ></a-entity> -->
+
+      <a-entity
+      gltf-model="url(/mp3_file_icon.glb)"
+      scale="0.3 0.3 0.3"
+      position="4 -1 -15"
+      rotation="0 260 0"
+      
+      animation__move-left="property: position; from: 4 -1 -15; to: 0 1 -15; dur: 10000; easing: linear; "
+       animation__move-right="property: position; from: 0 1 -15; to: 4 2.5 -15; dur: 10000; easing: linear; startEvents: animationcomplete__move-left"
+       animation__move-left-again="property: position; from: 4 2.5 -15; to: 0 1 -15; dur: 10000; easing: linear; startEvents: animationcomplete__move-right"
+    
+       ></a-entity>
+
+        <!-- Add a text entity -->
+        <a-entity
+        text="value:User connects to server 
+        and upload file via
+        internet; align: center; width: 2; color: white"
+        position="4 -1.4 -15"
+        scale="2 2 2"
+        visible="true"
+        animation__move-left="property: position; from: 4 -1.4 -15; to: 0 0 -15; dur: 10000; easing: linear; "
+        animation__move-right="property: position; from: 0 0 -15; to: 4 2 -15; dur: 10000; easing: linear; startEvents: animationcomplete__move-left"
+        animation__move-left-again="property: position; from: 4 2 -15; to: 0 0 -15; dur: 10000; easing: linear; startEvents: animationcomplete__move-right"
+     
+       ></a-entity>
+    
+    
+      <!-- position = left/right up/down ahead/backward
+    
+     animation__slant-right="property: position; from: 0 1 -15; to: -6 4 -15; dur: 1000; easing: linear; startEvents: animationcomplete__move-left"
+    
+    -->
+        
+ <!-- Add a text entity -->
+ <a-entity
+ text="value:FTP (File Transfer Protocol): Standard for file transfer between computers over networks, serving as a communication language in a global context. Users worldwide can upload files to an FTP server for others to access and download using the FTP protocol.; align: left; width: 2; color: white"
+ position="3 4.5 -15"
+ scale="2 2 2"
+ visible="true"
+ 
+></a-entity>
+
+
+     <!-- Add a text entity -->
+     <a-entity
+     text="value: FTP Server (Address: 'ftp.example.com' ); align: center; width: 2; color: white"
+     position="4.5 3.5 -15"
+     scale="2 2 2"
+     visible="true"
+     
+        ></a-entity>
+
+        <a-entity
+            gltf-model="url(/rak_server.glb)"
+            scale="5 5 6"
+            position="4 2 -15"
+            rotation="0 0 0" 
+        ></a-entity>
+    </a-scene>
+
+    <script>
+        // 3rd wala mp3 file icon animation
+        const movingEntity_1 = document.querySelector("#moving-entity1"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        const initialX_1 = -1; // Starting position on the right
+        const finalX_1 = -5;  // Ending position on the left
+        const speed = 0.01; // Movement speed
+        let currentPosition_1 = initialX_1;
+
+        // Function to move the GLB model from right to left
+        function moveEntity_1() {
+            currentPosition_1 -= speed;
+            movingEntity_1.setAttribute("position", `${currentPosition_1} 0.70 -15`);
+
+            // Reset the position to the initialX when it reaches the finalX
+            if (currentPosition_1 <= finalX_1) {
+                currentPosition_1 = initialX_1;
+            }
+
+            requestAnimationFrame(moveEntity_1);
+        }
+
+        setTimeout(() => {
+        // Call the moveEntity function after the delay
+        moveEntity_1();
+    }, 30000);
+
+        // Call the moveEntity function in the animation loop
+        //moveEntity_1();
+
+
+        //2nd wala mp3 file animation
+        const movingEntity_2 = document.querySelector("#moving-entity2"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        const initialX_2 = -1; // Starting position on the right
+        const finalX_2 = -5;  // Ending position on the left
+        //const speed = 0.01;
+        let currentPosition_2 = initialX_2;
+
+        // Function to move the GLB model from right to left
+        function moveEntity_2() {
+            currentPosition_2 -= speed;
+            movingEntity_2.setAttribute("position", `${currentPosition_2} 2.5 -15`);
+
+            // Reset the position to the initialX when it reaches the finalX
+            if (currentPosition_2 <= finalX_2) {
+                currentPosition_2 = initialX_2;
+            }
+
+            requestAnimationFrame(moveEntity_2);
+        }
+
+        setTimeout(() => {
+        // Call the moveEntity function after the delay
+        moveEntity_2();
+    }, 30000);
+        // Call the moveEntity function in the animation loop
+        //moveEntity_2();
+       
+
+        //1st wala mp3 file animation for pc
+        const movingEntity_3 = document.querySelector("#moving-entity3"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        const initialX_3 = -1; // Starting position on the right
+        const finalX_3 = -5;  // Ending position on the left
+        //const speed = 0.01;
+        let currentPosition_3 = initialX_3;
+
+        // Function to move the GLB model from right to left
+        function moveEntity_3() {
+            currentPosition_3 -= speed;
+            movingEntity_3.setAttribute("position", `${currentPosition_3} 4 -15`);
+
+            // Reset the position to the initialX when it reaches the finalX
+            if (currentPosition_3 <= finalX_3) {
+                currentPosition_3 = initialX_3;
+            }
+
+            requestAnimationFrame(moveEntity_3);
+        }
+
+        setTimeout(() => {
+        // Call the moveEntity function after the delay
+        moveEntity_3();
+    }, 30000);
+        // Call the moveEntity function in the animation loop
+        //moveEntity_3();
+
+        
+        //4th wala mp3 file animation for pc
+        const movingEntity_4 = document.querySelector("#moving-entity4"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        const initialX_4 = -1; // Starting position on the right
+        const finalX_4 = -5;  // Ending position on the left
+        //const speed = 0.01;
+        let currentPosition_4 = initialX_4;
+
+        // Function to move the GLB model from right to left
+        function moveEntity_4() {
+            currentPosition_4 -= speed;
+            movingEntity_4.setAttribute("position", `${currentPosition_4} -1 -15`);
+
+            // Reset the position to the initialX when it reaches the finalX
+            if (currentPosition_4 <= finalX_4) {
+                currentPosition_4 = initialX_4;
+            }
+
+            requestAnimationFrame(moveEntity_4);
+        }
+
+    setTimeout(() => {
+        // Call the moveEntity function after the delay
+        moveEntity_4();
+    }, 30000); // 15 seconds delay (15000 milliseconds)
+
+        // Call the moveEntity function in the animation loop
+        //moveEntity_4();
+       
+
+       
+
+
+        //    //5th wala mp3 file animation for pc
+        //    const movingEntity_5 = document.querySelector("#moving-entity5"); 
+        // <!-- Get the element with the ID "moving-entity" -->
+        // const initialX_5 = 4; // Starting position on the right
+        // const finalX_5 = 0;  // Ending position on the left
+        //const speed = 0.01;
+        // let currentPosition_5 = initialX_5;
+
+        // Function to move the GLB model from right to left
+        // function moveEntity_5() {
+        //     currentPosition_5 -= speed;
+        //     movingEntity_5.setAttribute("position", `${currentPosition_5} -1 -15`);
+
+        //     // Reset the position to the initialX when it reaches the finalX
+        //     if (currentPosition_5 <= finalX_5) {
+        //         currentPosition_5 = initialX_5;
+        //     }
+
+        //     requestAnimationFrame(moveEntity_5);
+        // }
+
+        // Call the moveEntity function in the animation loop
+        //moveEntity_5();
+
+
+        // Function to display text after a delay
+        function showText() {
+            const arText = document.querySelector("#arText");
+            arText.setAttribute("visible", true);
+        }
+
+        // Call the showText function after a delay of 5 seconds (5000 milliseconds)
+        setTimeout(showText, 30000);
+    </script>
+</body>
+</html>

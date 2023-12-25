@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>File Transfer Protocol</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
+    <script src="https://unpkg.com/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-cursor-component@2.0.1/dist/aframe-cursor-component.min.js"></script>
+    <script
+        src="https://unpkg.com/aframe-mouse-cursor-component@2.1.0/dist/aframe-mouse-cursor-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-laser-controls@0.5.1/dist/aframe-laser-controls.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam; geolocUser: false; debugUIEnabled: false;">
+
+        <a-sky color="lightblue"></a-sky>
+        <a-text value="sritika"  negate="false" scale="2 2 1" position="-2 2 -4"></a-text>
+
+
+
+        <a-entity
+    gltf-model="url(/mp3_file_icon.glb)"
+    scale="0.3 0.3 0.3"
+    position="0 2 -15"
+    rotation="0 260 0"
+    animation__rotate="property: rotation; to: 0 620 0; loop: true; dur: 10000"
+    mouse-cursor
+    click-message
+></a-entity>
+
+
+    </a-scene>
+   
+        <script>
+AFRAME.registerComponent('click-message', {
+  init: function () {
+    const el = this.el;
+    el.addEventListener('click', () => {
+      // Create a custom message element
+      const messageElement = document.createElement('a-entity');
+      messageElement.setAttribute('text', {
+        value: 'You clicked the entity!',
+        color: 'black',
+        align: 'center',
+      });
+      messageElement.setAttribute('position', '0 2 -15');
+      messageElement.setAttribute('scale', '2 2 2');
+
+      // Append the message element to the A-Frame scene
+      const scene = document.querySelector('a-scene');
+      scene.appendChild(messageElement);
+    });
+  },
+});
+
+
+     
+    </script>
+
+</body>
+
+</html>
